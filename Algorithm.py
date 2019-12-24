@@ -63,39 +63,3 @@ if __name__=='__main__':
         result = sum/(len(a_array)*500+1)
         print(result)
 
-# def qtoutput():
-#     [x,y] = TestDataGenerate()
-#     # [x,y] = DataGet1()
-#     # [x,y] = DataGet2()
-#     N = 6       #6次幂
-#     x.shape = -1,1
-#     y.shape = -1,1
-#
-#     # 两个模型LassoCV，ElasticNetCV，分别运行
-#     models = [Pipeline([('poly', PolynomialFeatures()),
-#                         ('linear', LassoCV(alphas=np.logspace(-3, 2, 50), fit_intercept=False))]),
-#               Pipeline([('poly', PolynomialFeatures()),
-#                         ('linear', ElasticNetCV(alphas=np.logspace(-3, 2, 50),l1_ratio=[.1, .5, .7, .9, .95, .99, 1],fit_intercept=False))])]
-#     #for t in range(2):
-#     model = models[1]
-#     model.set_params(poly__degree=N)
-#     model.fit(x, y.ravel())
-#     lin = model.get_params('linear')['linear']
-#     print("lin.coef_.ravel():\n", lin.coef_.ravel())#系数输出
-#
-#     x_hat = np.linspace(x.min(), x.max(), num=500)
-#     x_hat.shape = -1, 1
-#     y_hat = model.predict(x_hat)
-#     M_max = max(y_hat)
-#     M_min = min(y_hat)
-#     r0 = (M_max - M_min)/2
-#     hfwm_tuble = np.where(abs(y_hat-r0)<0.002)#判断相等，0.001时LassoCV无结果，ElasticNetCV正常
-#
-#     #半高宽计算
-#     sum = 0
-#     a_array = hfwm_tuble[0]
-#     for i in range(0,int(len(a_array))):
-#         sum = sum + abs(a_array[i] - a_array[len(a_array)-1-i])
-#     result = sum/(len(a_array)*500+1)
-#     print(result)
-# return result
