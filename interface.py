@@ -22,9 +22,15 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(520, 240, 91, 41))
         self.pushButton.setObjectName("pushButton")
 
+        self.pushButton.clicked.connect(self.on_pushButton_clicked)
+
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(520, 320, 91, 51))
         self.pushButton_2.setObjectName("pushButton_2")
+
+
+        self.pushButton_2.clicked.connect(self.on_pushButton_2_clicked)
+
 
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setGeometry(QtCore.QRect(230, 320, 256, 51))
@@ -48,19 +54,19 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "开始测量"))
         self.pushButton_2.setText(_translate("MainWindow", "显示半高宽"))
 
-    def statemeasuring(self):
-        startmeasure()
-        print("111111")
+    # def statemeasuring(self):
+    #     startmeasure()
+    #     print("111111")
+    #
+    # def showhfwm(self):
+    #     self.textBrowser.setText(qtoutput())
 
-    def showhfwm(self):
-        self.textBrowser.setText(qtoutput())
-    @pyqtSlot()
     def on_pushButton_clicked(self):
         print('1按钮被按下')
-        self.statemeasuring()
+        startmeasure()
     def on_pushButton_2_clicked(self):
         print('2按钮被按下')
-        self.showhfwm()
+        self.textBrowser.setText(str(qtoutput()))
 
 
 if __name__== '__main__':

@@ -98,3 +98,4 @@ def qtoutput():
             sum = sum + abs(a_array[i] - a_array[len(a_array)-1-i])
         result = sum/(len(a_array)*500+1)
         print(result)
+    return result
