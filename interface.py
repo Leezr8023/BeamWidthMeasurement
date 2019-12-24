@@ -57,8 +57,10 @@ class Ui_MainWindow(object):
     @pyqtSlot()
     def on_pushButton_clicked(self):
         print('1按钮被按下')
+        self.statemeasuring()
     def on_pushButton_2_clicked(self):
         print('2按钮被按下')
+        self.showhfwm()
 
 
 if __name__== '__main__':
