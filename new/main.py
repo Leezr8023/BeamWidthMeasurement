@@ -3,7 +3,7 @@ import xpsclass
 #import Algorithm
 import array
 import numpy as np
-
+#from data import data1,data2
 def startmeasure():
     sr = SR830.SR830()
     xps = xpsclass.MyXPS()
@@ -25,8 +25,10 @@ def startmeasure():
             #print("X out : {0}".format(res))
             # print(i)
             # print("Signal RMS: {0}V with phase {1} deg".format(res[0],int(res[1])))
-            data[i + 500*j, 0] = sum/6
-            data[i + 500*j, 1] = postion
+            global data1
+            global data2
+            data1.append(sum/6)
+            data2.append(postion)
 
         xps.measureMove(10)
 
@@ -43,13 +45,15 @@ def startmeasure():
             # print("Signal RMS: {0}V with phase {1} deg".format(res[0],int(res[1])))
             print(sum/6)
             print("")
-            data[i + 500*j, 0] = sum/6
-            data[i + 500*j, 1] = postion
+            global data1
+            global data2
+            data1.append(sum/6)
+            data2.append(postion)
     sr.close()
     xps.close()
     num = np.loadtxt('count.txt')
     title = "data/data{0}.txt".format(num)
-    np.savetxt(title, data, fmt='%f', delimiter='\t')
+    np.savetxt(title, [data1,data2], fmt='%f', delimiter='\t')
     np.savetxt("count.txt",[num+1])
     # sr = SR830.SR830()
     # xps = xpsclass.MyXPS()

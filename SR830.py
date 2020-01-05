@@ -170,6 +170,8 @@ class SR830:
             self.inst.query(str(message))
         else:
             self.inst.write(str(message))
+    def getAUX(self):
+        return (np.array([float(self.inst.query("OAUX? " + str(1)))]))
 
     def close(self):
         self.inst.close()
