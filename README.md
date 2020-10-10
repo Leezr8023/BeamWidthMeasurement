@@ -7,4 +7,4 @@ algorithm.py中数据是从M_tab中读取的假数据，实际文本数据是由
 
 main.py里的startmeasure函数和algorithm.py中的qtoutput单独调用都是可以运行的
 
-包：pyvisa，numpy,scikit-learn,pyqt5,
+包：pyvisa，numpy,scikit-learn,pyqt5,clr
